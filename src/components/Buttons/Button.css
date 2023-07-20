@@ -1,0 +1,94 @@
+
+.Button {
+    text-overflow: ellipsis;
+    color: #FFF;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 0;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 200px;
+    background: linear-gradient(to right, rgba(58, 227, 195, 1) 40%, rgba(78, 108, 228, 1) 80%, rgba(86, 63, 240, 1) 100%, rgba(86, 63, 240, 1) 100%);
+}
+
+.Button:hover {
+    background: linear-gradient(to right, rgba(58, 227, 195, 1) 10%, rgba(78, 108, 228, 1) 80%, rgba(86, 63, 240, 1) 100%, rgba(86, 63, 240, 1) 100%);
+}
+
+/* selected link */
+.Button:active {
+    background: rgba(86, 63, 240, 1);
+}
+
+
+
+
+.ButtonActive {
+    color: #FFF;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 0;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 200px;
+    background: rgba(86, 63, 240, 1);
+}
+
+/* selected link */
+.ButtonActive:active {
+    background: rgba(86, 63, 240, 1);
+}
+
+
+/* Tablets lager */
+@media only screen and (min-width: 801px) and (max-width: 821px) {
+    .Button {
+        text-overflow: ellipsis;
+        font-size: 18px;
+        height: 45px;
+    }
+
+    .ButtonActive {
+        text-overflow: ellipsis;
+        font-size: 18px;
+        height: 45px;
+    }
+}
+
+/* Tablets y phablets */
+@media only screen and (min-width: 768px) and (max-width: 800px) {
+    .Button {
+        text-overflow: ellipsis;
+        font-size: 14px;
+        height: 45px;
+    }
+    .ButtonActive {
+        text-overflow: ellipsis;
+        font-size: 14px;
+        height: 45px;
+    }
+}
+
+/* Teléfonos */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+
+    .Button {
+        text-overflow: ellipsis;
+        font-size: 9px;
+        height: 35px;
+    }
+
+    .ButtonActive {
+        text-overflow: ellipsis;
+        font-size: 8px;
+        height: 35px;
+    }
+}

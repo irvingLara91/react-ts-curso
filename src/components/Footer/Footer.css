@@ -1,0 +1,86 @@
+.footer {
+    background-image: url( '../../assets/files/footer.svg');
+    width: 100% !important;
+    height:auto!important;
+    /*//background-repeat: no-repeat;*/
+
+}
+
+.titleFooter{
+    color: #FFF;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.subTitleFooter{
+    color: #FFF;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+
+
+/* Tablets lager */
+@media only screen and (min-width: 801px) and (max-width: 821px) {
+    .titleFooter{
+        color: #FFF;
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .subTitleFooter{
+        color: #FFF;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+/* Tablets y phablets */
+@media only screen and (min-width: 768px) and (max-width: 800px) {
+    .titleFooter{
+        color: #FFF;
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .subTitleFooter{
+        color: #FFF;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+/* Teléfonos */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+
+    .titleFooter{
+        color: #FFF;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .subTitleFooter{
+        color: #FFF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+
