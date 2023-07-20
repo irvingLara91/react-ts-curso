@@ -12,11 +12,11 @@ const MovieHomeSkeleton = () => {
                   }}
 
                   rowSpacing={3} columnSpacing={{xs: 1, sm: 3, md: 3}}
-                  columns={{xs: 3, sm: 12, md: 16, lg: 20, xl: 24}}>
+                  columns={{xs: 3, sm: 8, md: 16, lg: 20, xl: 24}}>
                 {
-                    Array.from(new Array(8)).map((item, index) => (
-                            <Box key={index + item} sx={{width: 210, marginRight: 0.5, my: 5}}>
-                                <Skeleton variant="rectangular" width={210} height={118}/>
+                    Array.from(new Array(6)).map((item, index) => (
+                            <Box key={index + item} sx={{width: {xs: 100, sm: 100, md: 210, lg: 210, xl: 210}, marginRight: 0.5, my: 5}}>
+                                <Skeleton variant="rectangular" sx={{width: {xs: 100, sm: 100, md: 210, lg: 210, xl: 210}}} height={118}/>
                                 <Box sx={{pt: 0.5}}>
                                     <Skeleton/>
                                     <Skeleton width="60%"/>
