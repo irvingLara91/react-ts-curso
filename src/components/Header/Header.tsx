@@ -57,7 +57,7 @@ const Header= (props:any) => {
                                 open={Boolean(anchorEl)}
                                 onClose={handleCloseHide}
                             >
-                                <MenuItem onClick={handleClose}>{"Cerrar Sessión"}</MenuItem>
+                                <MenuItem onClick={handleClose}>{"Cerrar sesión"}</MenuItem>
                             </Menu>
                         </div>
                     )}

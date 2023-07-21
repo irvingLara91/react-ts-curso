@@ -6,9 +6,9 @@ class ApiApp {
             case "post":
                 return APIAxios.post(url, params)
             case "get":
-                return APIAxios.get(url)
+                return APIAxios.get<object>(url)
             case "get-params":
-                return APIAxios.get(url, {
+                return APIAxios.get<object>(url, {
                     params
                 })
             case "delete":
@@ -17,7 +17,7 @@ class ApiApp {
     }
 
 
-    static getMovieLists = (params : { language:string,page:string,url:string }) => {
+    static getMovieLists = (params: { language: string; page: number; url: string }) => {
         return ApiApp.ApisType(`/movie/${params.url}`, "get-params", {language: params.language, page: params.page});
     }
 

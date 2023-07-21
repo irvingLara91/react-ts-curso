@@ -10,6 +10,7 @@ import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutl
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import AuthTemplate from "../../templates/AuthTemplate.tsx";
 import MovieHomeSkeleton from "./components/MovieHomeSkeleton.tsx";
+
 interface MovieI {
     dates?: object;
     page: number;
@@ -17,6 +18,7 @@ interface MovieI {
     total_pages?: number;
     total_results?: number;
 }
+
 
 const initData = {
     dates: {},
@@ -35,9 +37,10 @@ const Home = () => {
 
     const getMovies = (url = "", page = 1) => {
         setLoading(true)
+        const params = {language: 'es-MX', page: page, url: url}
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        ApiApp.getMovieLists({language: 'es-MX', page: page, url: url}).then(response => {
+        ApiApp.getMovieLists(params).then(response => {
             // console.log("respuestas", response)
             if (response.status === 200) {
                 setData(response.data)
@@ -58,9 +61,9 @@ const Home = () => {
     }, [url])
 
     const changePage = (page = 1) => {
-        setTimeout(()=>{
-            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-        },500)
+        setTimeout(() => {
+            window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+        }, 500)
         getMovies(url, page)
     }
     return (
@@ -99,7 +102,7 @@ const Home = () => {
                     <MovieHomeSkeleton/>
                     :
 
-                <ContentMovieHome data={data} list={list} loading={loading}/>
+                    <ContentMovieHome data={data} list={list} loading={loading}/>
 
             }
             <Box sx={{

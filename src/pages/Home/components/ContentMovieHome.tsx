@@ -31,6 +31,7 @@ type Movie = {
     vote_average: number
     vote_count: number
 }
+interface IKeys { id: number; name: string }
 
 const StyledRating = styled(Rating)({
     '& .MuiRating-iconFilled': {
@@ -63,12 +64,8 @@ const ContentMovieHome = ({list}: ContentMovieHomeI) => {
         let stringNames = "";
 
         if (gen.length > 0) {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            stringNames = gen.map(({name}) => name).join(' / ')
+            stringNames = gen.map((g: any): IKeys => g.name).join(' / ')
         }
-
-
         return stringNames
     }
 
@@ -76,8 +73,6 @@ const ContentMovieHome = ({list}: ContentMovieHomeI) => {
 
         <Box sx={{
             width: '100%', height: {xs: 1100, sm: 1500, md: 1500, lg: 1200, xl: 1200}, paddingTop: 5,
-            /*paddingBottom: {xs: 50, sm:50, md:30, lg: 30, xl: 30},
-            marginBottom:  {xs: -50,sm:-50,md:-45, lg: -50, xl: -13},*/
             overflow: 'scroll'
         }}>
 
@@ -86,7 +81,6 @@ const ContentMovieHome = ({list}: ContentMovieHomeI) => {
                   columns={{xs: 4, sm: 12, md: 16, lg: 20, xl: 24}}>
                 {
                     list && list.length > 0 && list.map((item, index) => {
-                        // @ts-ignore
                         return (
                             <Grid item xs={2} sm={4} md={4} lg={5} xl={4} key={index}>
                                 <div className={'card'}
