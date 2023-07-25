@@ -55,9 +55,7 @@
 
 .card .info {
     width: 100%;
-    padding-top: 100px;
-    overflow: scroll;
-    height: 367px;
+    height: 300px;
     position: relative;
     z-index: 3;
     color: #FFFFFF;
@@ -68,11 +66,8 @@
 }
 
 .card:hover .info {
-    overflow: scroll;
     width: 100%;
-    padding-left: 10%;
-    padding-right: 10%;
-    height: 300px;
+
     opacity: 1;
     transform: translateY(0px);
 }
@@ -88,7 +83,6 @@
     font-size: 12px;
     font-weight: 600;
     line-height: 127.5%;
-
 }
 
 .card .info p {
@@ -96,6 +90,14 @@
     font-size: 12px;
     margin-top: 8px;
     margin-bottom: 20px;
+    display: -webkit-box;
+    height: 120px;
+    -webkit-line-clamp: 8; /* Número de líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 127.5%;
+
 }
 
 
@@ -124,4 +126,27 @@
     font-size: 12px;
     margin-top: 8px;
     margin-bottom: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: none;
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #646cff;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #03067B;
 }

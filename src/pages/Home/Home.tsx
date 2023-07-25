@@ -131,7 +131,7 @@ const Home = () => {
                         fontSize={"medium"}/>
                 </button>
 
-                <Text textStyle={"pageTitle"} content={page + "/" + data.total_pages}/>
+                <Text textStyle={"pageTitle"} content={page + "/" + (data.total_pages  ? data.total_pages >=500 ? 500: data.total_pages: data.total_pages )}/>
 
                 <button style={{
                     display: 'flex',
@@ -142,6 +142,9 @@ const Home = () => {
                     background: 'rgba(81, 65, 234, 1)', borderRadius: 50
                 }} onClick={() => {
                     changePage(page !== 0 ?
+                        data.total_pages === 500 ?
+                            page
+                            :
                         data.total_pages === data.page ?
                             data.page
                             :

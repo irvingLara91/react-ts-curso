@@ -33,6 +33,8 @@ type Movie = {
 }
 interface IKeys { id: number; name: string }
 
+
+
 const StyledRating = styled(Rating)({
     '& .MuiRating-iconFilled': {
         color: 'rgb(245,245,245)',
@@ -73,7 +75,7 @@ const ContentMovieHome = ({list}: ContentMovieHomeI) => {
 
         <Box sx={{
             width: '100%', height: {xs: 1100, sm: 1500, md: 1500, lg: 1200, xl: 1200}, paddingTop: 5,
-            overflow: 'scroll'
+            overflowY: 'scroll'
         }}>
 
             <Grid container sx={{paddingLeft: {xs: 2, lg: 15, xl: 30}, paddingRight: {xs: 2, lg: 15, xl: 30}}}
