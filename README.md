@@ -1,5 +1,5 @@
 # React-Ts-Curso
-Url del sitio practico : https://react-curso-ts.netlify.app
+Url del sitio: https://react-curso-ts.netlify.app
 
 Credenciales para inicar sesión
 
