@@ -69,6 +69,7 @@ const LoginForm = ({save}: LoginFormI) => {
 
 
     const getREquestToken = () => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         ApiApp.createRequestToken().then(
             res=>{
