@@ -97,7 +97,7 @@ const LoginForm = ({save}: LoginFormI) => {
     }
 
     const  validatePassword=(pass="") => {
-        if (pass.trim() !== "") {
+        if (pass.trim() !== "" &&  pass.length >=7) {
             console.log("Valid password");
             setPasswordError(false)
         } else {
