@@ -1,8 +1,8 @@
 import Text from "../../../../components/Texts/Text.tsx";
 import Input from "../../../../components/Inputs/Input.tsx";
 import Button from "../../../../components/Buttons/Button.tsx";
-import {useEffect, useState} from "react";
-import {Grid} from "@mui/material";
+import  {useEffect, useState} from "react";
+import {Checkbox, FormControlLabel, Grid} from "@mui/material";
 import './LoginForm.css'
 import ApiApp from "../../../../lib/apiApp.tsx";
 
@@ -40,6 +40,16 @@ const textStyle = {
     lineHeight: '120%',
     marginTop: 10
 }
+
+const textCheckBoxStyle = {
+    color: '#FFF',
+    fontSize: '20px',
+    fontFamily: '',
+    fontStyle: ' italic',
+    fontWeight: ' 400',
+    lineHeight: '120%',
+    marginTop: 10
+}
 interface LoginFormI {
     save: (obj:object) => void;
 }
@@ -47,7 +57,7 @@ interface LoginFormI {
 const LoginForm = ({save}: LoginFormI) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
+    const [check, setCheck] = useState(false)
     const [emailError, setEmailError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
     const [emailErrorMessage, setEmailErrorMessaga] = useState('')
@@ -114,6 +124,17 @@ const LoginForm = ({save}: LoginFormI) => {
        save(data_)
    }
 
+    const handleChange = (event:any) => {
+        if (event.target.checked) {
+            console.log('✅ Checkbox is checked');
+        } else {
+            console.log('⛔️ Checkbox is NOT checked');
+        }
+        setCheck(event.target.checked);
+    };
+
+
+
     return (
             <Grid container spacing={0}>
                 <Grid item xs={11} sm={8} md={5.5} lg={4.5} xl={4}
@@ -147,7 +168,24 @@ const LoginForm = ({save}: LoginFormI) => {
                            customStyles={passwordError ? styleInputError : styleInput}
                            name={"password"}
                            placeholder={"Contraseña"} setValue={setPassword} value={password}/>
+
+                    <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+                        <FormControlLabel required control={<Checkbox
+                            sx={{
+
+                                color:'#fff',
+                                '&.Mui-checked': {
+                                    color:'#5141EA',
+                                },
+                                '& .MuiSvgIcon-root': { fontSize: 28} }}
+                            checked={check} onChange={handleChange}
+                        />} style={textCheckBoxStyle} label="He leido y acepto los terminos y condiciones" />
+
+                    </div>
+
                     <Button name={'Login'} placeholder={'Crear cuenta'}
+                            isDisable={check}
+                            require={true}
                             clickHandler={submit}/>
                 </Grid>
             </Grid>
