@@ -18,7 +18,7 @@ const Login = (props:any) => {
             navigate("/home")
         }).catch(e=>{
             alert("Verifique sus credenciales")
-            console.error("dddd",e)})
+            console.error("",e)})
     }
 
     return (

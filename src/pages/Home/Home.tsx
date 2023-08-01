@@ -62,7 +62,7 @@ const Home = () => {
 
     const changePage = (page = 1) => {
         setTimeout(() => {
-            window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+           window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
         }, 500)
         getMovies(url, page)
     }
@@ -112,6 +112,7 @@ const Home = () => {
                 alignItems: 'center',
             }}>
                 <button
+                    disabled={1 === page}
                     style={{
                         display: 'flex',
                         width: 50,
@@ -133,7 +134,10 @@ const Home = () => {
 
                 <Text textStyle={"pageTitle"} content={page + "/" + (data.total_pages  ? data.total_pages >=500 ? 500: data.total_pages: data.total_pages )}/>
 
-                <button style={{
+                <button
+
+                    disabled={data.total_pages && data.total_pages >=500  ? 500 ===page :  data.total_pages === page}
+                    style={{
                     display: 'flex',
                     width: 50,
                     height: 50,

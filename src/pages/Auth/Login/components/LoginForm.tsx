@@ -62,11 +62,9 @@ const LoginForm = ({save}: LoginFormI) => {
     const [passwordError, setPasswordError] = useState(false)
     const [emailErrorMessage, setEmailErrorMessaga] = useState('')
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('')
-
-
-
     const [requestToken,setRequestToken] = useState({})
 
+    const [enabled,setEnabled] = useState(false)
 
     const getREquestToken = () => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -84,39 +82,61 @@ const LoginForm = ({save}: LoginFormI) => {
         getREquestToken()
     },[])
 
-
     const  validateEmail=(email_="")=> {
-        // Regular expression pattern for email validation
-        // Test the email against the pattern
+        let error =false;
         if (email_.trim() !== ""){
             setEmailError(false)
+            error = false
         }else {
             setEmailError(true)
             setEmailErrorMessaga("Nombre de usuario invalido")
+            error = true
         }
-        return email_.trim() !== "";
+        return error;
     }
-
-    const  validatePassword=(pass="") => {
-        if (pass.trim() !== "" &&  pass.length >=7) {
-            console.log("Valid password");
+    const  validatePassword= (pass="") => {
+        let error =false;
+        if (pass.trim() !== "" && pass.trim().length >=7){
             setPasswordError(false)
-        } else {
+            error = false
+        }else {
             setPasswordError(true)
             setPasswordErrorMessage("Contraseña invalido")
+            error = true
         }
-        return pass.trim() !== "";
+        return error
+    }
+    const Validad =()=>{
+        let next = false
+
+        if (validateEmail(email)){
+            next = false
+        }else {
+            next= true
+        }
+
+        if (validatePassword(password)){
+           next = false
+        }else {
+            next= true
+        }
+
+        if (check && next){
+            setEnabled(true)
+        }else {
+            setEnabled(false)
+        }
+
     }
 
+
+    useEffect(()=>{
+
+        Validad()
+
+    },[email,password,check])
+
    const submit =()=>{
-        if (!validateEmail(email)){
-            return
-        }
-
-       if (!validatePassword(password)){
-           return
-       }
-
        const data_= {
            ...requestToken,
            username:email,
@@ -185,7 +205,7 @@ const LoginForm = ({save}: LoginFormI) => {
                     </div>
 
                     <Button name={'Login'} placeholder={'Crear cuenta'}
-                            isDisable={check}
+                            isDisable={enabled}
                             require={true}
                             clickHandler={submit}/>
                 </Grid>
