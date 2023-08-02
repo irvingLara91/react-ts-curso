@@ -83,13 +83,14 @@ const LoginForm = ({save}: LoginFormI) => {
     },[])
 
     const  validateEmail=(email_="")=> {
+        const patron = /\S+@\S+\.\S+/;
         let error =false;
-        if (email_.trim() !== ""){
+        if (email_.trim() !== "" && patron.test(email)){
             setEmailError(false)
             error = false
         }else {
             setEmailError(true)
-            setEmailErrorMessaga("Nombre de usuario invalido")
+            setEmailErrorMessaga("Correo electrónico invalido")
             error = true
         }
         return error;
@@ -106,22 +107,23 @@ const LoginForm = ({save}: LoginFormI) => {
         }
         return error
     }
-    const Validad =()=>{
-        let next = false
+    const Validad = ()=>{
+        let nextEmail = false
+        let nextPass = false
 
         if (validateEmail(email)){
-            next = false
+            nextEmail = false
         }else {
-            next= true
+            nextEmail= true
         }
 
         if (validatePassword(password)){
-           next = false
+            nextPass = false
         }else {
-            next= true
+            nextPass = true
         }
 
-        if (check && next){
+        if (check && nextEmail && nextPass){
             setEnabled(true)
         }else {
             setEnabled(false)
@@ -131,9 +133,7 @@ const LoginForm = ({save}: LoginFormI) => {
 
 
     useEffect(()=>{
-
         Validad()
-
     },[email,password,check])
 
    const submit =()=>{
@@ -176,11 +176,11 @@ const LoginForm = ({save}: LoginFormI) => {
                     </div>
 
                     <Input textStyle={textStyle}
-                           type={'text'}
+                           type={'email'}
                            error={emailError}
                            messageError={emailErrorMessage}
                            customStyles={emailError ? styleInputError :styleInput}
-                           name={"username"} placeholder={"Nombre de usuario de DaCodes"}
+                           name={"email"} placeholder={"Correo electrónico de DaCodes"}
                            setValue={setEmail} value={email}/>
                     <Input textStyle={textStyle}
                            type={'password'}

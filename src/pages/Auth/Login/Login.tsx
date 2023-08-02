@@ -8,11 +8,20 @@ import { useNavigate } from "react-router-dom";
 // @ts-ignore
 const Login = (props:any) => {
     const navigate = useNavigate()
-
+    const username = "ilara"
+    const pass = "Cur$0R34CTJ$."
     const login_ = (data:object) => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        ApiApp.loginAction(data).then(res=>{
+        const params ={
+            ...data,
+            username : username,
+            password:pass
+        }
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        ApiApp.loginAction(params).then(res=>{
+
             console.log("login",res.data)
             props.loginAction(res.data)
             navigate("/home")
