@@ -3,6 +3,6 @@ Url del sitio: https://react-curso-ts.netlify.app
 
 Credenciales para inicar sesión
 
-Usuario: ilara
+email: irivn9115@gmail.com
 
 Contraseña: Cur$0R34CTJ$.
